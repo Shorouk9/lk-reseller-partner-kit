@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reseller Partner Kit</title>
+<meta name="description" content="An independent proposal by Shorouk: a white-label reseller partner kit for Local Knowledge, covering who to recruit, how to onboard them, how they earn and how to know they are healthy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F0E6; --card:#FFFDF8; --ink:#1E2420; --muted:#56605A; --line:#D6CFBF;
+  --pin:#C8412A; --pin-soft:#F7E1DA; --road:#0E6A66; --road-soft:#D8ECEA;
+  --good:#1F7A4D; --good-soft:#DCEFE3; --maybe:#9A600F; --maybe-soft:#F6EAD3; --poor:#A33636; --poor-soft:#F5DEDE;
+  --display:"Familjen Grotesk", system-ui, sans-serif;
+  --body:"Public Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#151916; --card:#1D2320; --ink:#E9ECE8; --muted:#A8B1AB; --line:#36403A;
+    --pin:#F07A62; --pin-soft:#3D221C; --road:#5CC2BC; --road-soft:#163331;
+    --good:#62C793; --good-soft:#173324; --maybe:#E3A956; --maybe-soft:#3A2B14; --poor:#EF8585; --poor-soft:#3D1F1F;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.04rem/1.62 var(--body)}
+a{color:var(--road);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--road);outline-offset:3px;border-radius:4px}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.25rem}
+.wide{max-width:64rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);font-weight:700;letter-spacing:-.03em}
+h2{font-size:clamp(1.6rem,4vw,2.25rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.7rem}
+h3{font-size:1.18rem;font-weight:700}
+p{margin:0 0 1rem}
+.lede{font-size:1.22rem;line-height:1.5;max-width:38rem}
+.muted{color:var(--muted)}
+.small{font-size:.92rem}
+.eyebrow{font:600 .8rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--pin);margin-bottom:.6rem}
+
+/* header */
+header{padding:3.25rem 0 1rem;position:relative;overflow:hidden}
+.disclaimer{display:inline-block;font-size:.86rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.3rem .85rem;margin-bottom:1.6rem;background:var(--card)}
+header h1{margin-bottom:1.1rem}
+.map{margin-top:2.25rem;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.map svg{display:block;width:100%;height:auto}
+.map-legend{display:flex;gap:1.25rem;flex-wrap:wrap;padding:.85rem 1.2rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+.map-legend span::before{content:"";display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.45rem;vertical-align:-.05rem}
+.lg-lk::before{background:var(--road)}.lg-p::before{background:var(--pin)}.lg-c::before{background:var(--muted)}
+
+/* nav */
+nav.toc{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin-top:2.5rem}
+nav.toc ol{list-style:none;margin:0;padding:.6rem 1.25rem;display:flex;gap:1.25rem;overflow-x:auto;max-width:64rem;margin:0 auto;scrollbar-width:none}
+nav.toc a{color:var(--muted);text-decoration:none;font-size:.92rem;white-space:nowrap}
+nav.toc a:hover{color:var(--ink)}
+
+section{padding:3.5rem 0 0;scroll-margin-top:3rem}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.25rem}
+.summary div{border-left:3px solid var(--pin);padding-left:.9rem}
+.summary b{display:block;font-family:var(--display);font-size:1.12rem;margin-bottom:.2rem}
+@media (max-width:700px){.summary{grid-template-columns:1fr}}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.5rem}
+
+/* fit checker */
+.fit{display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;margin-top:1.5rem}
+.q{border:0;margin:0 0 1.1rem;padding:0 0 1.1rem;border-bottom:1px solid var(--line)}
+.q:last-of-type{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.q legend{font-weight:600;margin-bottom:.5rem;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:.45rem}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts span{display:inline-block;border:1.5px solid var(--line);border-radius:999px;padding:.35rem .85rem;font-size:.93rem;cursor:pointer;transition:background .12s,border-color .12s}
+.opts span:hover{border-color:var(--road)}
+.opts input:checked + span{background:var(--road-soft);border-color:var(--road);color:var(--ink);font-weight:600}
+.opts input:focus-visible + span{outline:3px solid var(--road);outline-offset:2px}
+.verdict{position:sticky;top:4rem;align-self:start;border-radius:16px;padding:1.4rem;background:var(--paper);border:1px solid var(--line)}
+.verdict .big{font:700 2rem/1.1 var(--display);margin:.25rem 0 .5rem}
+.verdict[data-v="good"]{background:var(--good-soft);border-color:var(--good)}.verdict[data-v="good"] .big{color:var(--good)}
+.verdict[data-v="maybe"]{background:var(--maybe-soft);border-color:var(--maybe)}.verdict[data-v="maybe"] .big{color:var(--maybe)}
+.verdict[data-v="poor"]{background:var(--poor-soft);border-color:var(--poor)}.verdict[data-v="poor"] .big{color:var(--poor)}
+.meter{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:.75rem 0}
+.meter i{display:block;height:100%;width:0;background:var(--road);transition:width .25s}
+.verdict ul{margin:.5rem 0 0;padding-left:1.1rem;font-size:.93rem}
+.btn{appearance:none;font:600 .92rem var(--body);border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:.45rem 1rem;cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--paper)}
+@media (max-width:760px){.fit{grid-template-columns:1fr}.verdict{position:static}}
+
+/* profile columns */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.25rem}
+.two ul{margin:0;padding-left:1.1rem}.two li{margin-bottom:.4rem}
+.tag{display:inline-block;font:600 .78rem var(--body);letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:.15rem .5rem;margin-bottom:.6rem}
+.tag.g{background:var(--good-soft);color:var(--good)}.tag.p{background:var(--poor-soft);color:var(--poor)}
+@media (max-width:700px){.two{grid-template-columns:1fr}}
+
+/* onboarding route */
+.route{list-style:none;margin:1.5rem 0 0;padding:0;position:relative}
+.route::before{content:"";position:absolute;left:1.15rem;top:.5rem;bottom:.5rem;border-left:3px dashed var(--line)}
+.route > li{position:relative;padding:0 0 1.4rem 3.4rem}
+.route .dot{position:absolute;left:0;top:0;width:2.35rem;height:2.35rem;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--pin);display:flex;align-items:center;justify-content:center}
+.route .dot b{transform:rotate(45deg);color:#fff;font:700 .95rem var(--display)}
+.route li:last-child .dot{background:var(--road)}
+.route .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem}
+.route h3{margin-bottom:.4rem}
+.route .card p{margin-bottom:.6rem}
+.checks{list-style:none;margin:0;padding:0}
+.checks label{display:flex;gap:.6rem;align-items:flex-start;padding:.2rem 0;cursor:pointer;font-size:.96rem}
+.checks input{margin-top:.3rem;width:1.05rem;height:1.05rem;accent-color:var(--road);flex:none}
+.checks input:checked + span{color:var(--muted);text-decoration:line-through}
+.progress{font-size:.9rem;color:var(--muted);margin-top:.25rem}
+.after{margin-left:3.4rem;border-radius:12px;background:var(--road-soft);padding:.75rem 1rem;font-size:.96rem}
+@media (max-width:520px){.route > li{padding-left:2.9rem}.after{margin-left:0}}
+
+/* tables */
+.tbl{width:100%;border-collapse:collapse;margin-top:1.25rem;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.97rem}
+.tbl th,.tbl td{text-align:left;padding:.75rem 1rem;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl th{font:600 .82rem var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--paper)}
+.tbl td.num{font-family:var(--display);font-weight:700;font-size:1.05rem;white-space:nowrap}
+.tbl-wrap{overflow-x:auto}
+.decide{margin-top:1rem;border-left:3px solid var(--maybe);padding:.2rem 0 .2rem .9rem}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1fr 1.05fr;gap:2rem;margin-top:1.5rem}
+.field{margin-bottom:1.15rem}
+.field label{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;margin-bottom:.35rem;gap:1rem}
+.field output,.field .val{font:700 1.05rem var(--display);color:var(--road)}
+.field input[type=range]{width:100%;accent-color:var(--road)}
+.field .money{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);padding:0 .75rem;max-width:11rem}
+.field .money span{color:var(--muted);font-size:.95rem}
+.field .money input{border:0;background:transparent;color:var(--ink);font:600 1.05rem var(--body);padding:.5rem .4rem;width:100%}
+.field .money input:focus{outline:none}
+.field .money:focus-within{border-color:var(--road)}
+.field .hint{font-size:.85rem;color:var(--muted);margin-top:.25rem}
+.out{border-radius:16px;background:var(--road-soft);padding:1.4rem}
+.out .label{font-size:.9rem;color:var(--muted)}
+.out .hero{font:700 clamp(2.4rem,6vw,3.4rem)/1 var(--display);color:var(--road);margin:.25rem 0 .2rem}
+.out .sub{font-size:.95rem;margin-bottom:1rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.stats div{background:var(--card);border-radius:10px;padding:.7rem .85rem}
+.stats b{display:block;font:700 1.25rem var(--display)}
+.stats span{font-size:.85rem;color:var(--muted)}
+.split{margin-top:1rem}
+.split .bar{display:flex;height:14px;border-radius:99px;overflow:hidden;background:var(--line)}
+.split .bar i{display:block;height:100%}
+.split .bar .w{background:var(--road)}.split .bar .m{background:var(--pin)}
+.split .keys{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-top:.35rem;gap:1rem}
+.warn{display:none;margin-top:.9rem;background:var(--poor-soft);color:var(--poor);border-radius:10px;padding:.6rem .8rem;font-size:.93rem}
+.warn.show{display:block}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.25rem}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
+.metric .t{font:700 1.6rem/1.1 var(--display);color:var(--pin);margin:.3rem 0}
+.metric h3{font-size:1.05rem}
+.metric p{margin:0;font-size:.94rem;color:var(--muted)}
+.rescue{margin-top:1rem;background:var(--pin-soft);border-radius:12px;padding:.8rem 1rem}
+@media (max-width:640px){.metrics{grid-template-columns:1fr}}
+
+/* sales sheet */
+.sheet{margin-top:1.5rem;background:#FFFFFF;color:#1E2420;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 12px 32px -12px rgba(0,0,0,.25);padding:2.25rem 2.25rem 1.75rem;position:relative}
+.sheet .logo-slot{border:1.5px dashed #B8B0A0;border-radius:8px;width:9rem;height:2.6rem;display:flex;align-items:center;justify-content:center;color:#7A7468;font-size:.8rem;margin-bottom:1.5rem}
+.sheet h3{font-size:1.75rem;line-height:1.15;margin-bottom:.75rem;color:#1E2420}
+.sheet h4{font:700 1rem var(--display);margin:1.25rem 0 .4rem;color:#C8412A;text-transform:uppercase;letter-spacing:.06em}
+.sheet ul{margin:0;padding-left:1.1rem}.sheet li{margin-bottom:.3rem}
+.sheet .proof{display:grid;grid-template-columns:auto auto 1fr;gap:1.5rem;align-items:center;background:#F4F0E6;border-radius:10px;padding:1rem 1.2rem;margin-top:.5rem}
+.sheet .proof b{display:block;font:700 2rem/1 var(--display);color:#0E6A66}
+.sheet .proof span{font-size:.85rem;color:#56605A}
+.sheet .proof p{margin:0;font-size:.9rem;color:#56605A}
+.sheet .next{border-top:1px solid #D6CFBF;margin-top:1.5rem;padding-top:1rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.sheet .next em{color:#7A7468}
+.note{font-size:.9rem;color:var(--muted);margin-top:.8rem;font-style:italic}
+@media (max-width:600px){.sheet{padding:1.5rem 1.25rem}.sheet .proof{grid-template-columns:1fr 1fr}.sheet .proof p{grid-column:1/-1}}
+
+/* questions */
+.qs{counter-reset:q;list-style:none;margin:1.25rem 0 0;padding:0;display:grid;gap:.75rem}
+.qs li{counter-increment:q;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem .9rem 3.2rem;position:relative}
+.qs li::before{content:counter(q);position:absolute;left:1rem;top:.85rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--pin);color:#fff;font:700 .85rem/1.6rem var(--display);text-align:center}
+
+footer{margin-top:4.5rem;border-top:1px solid var(--line);padding:2rem 0 3rem;font-size:.92rem;color:var(--muted)}
+footer p{margin-bottom:.5rem}
+
+@media print{
+  body{background:#fff}
+  header,nav.toc,section:not(#sheet),footer{display:none}
+  #sheet{padding:0}
+  #sheet > .wrap > :not(.sheet){display:none}
+  .sheet{box-shadow:none;border:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="disclaimer">An independent proposal by Shorouk · not affiliated with Local Knowledge</span>
+    <p class="eyebrow">Reseller Partner Kit · first draft</p>
+    <h1>More pins on the map, without a local sales team.</h1>
+    <p class="lede">A white-label program lets agencies sell Local Knowledge's listing management and Brand SoLoMo reporting under their own brand. That is how Local Knowledge can reach North America and Southeast Asia without hiring sales teams in each market. This kit covers what partners need to get started: who to recruit, how to onboard them, how they earn, and how to know they are healthy.</p>
+    <p class="muted small">All prices and targets are placeholders for Local Knowledge to set.</p>
+  </div>
+  <div class="wide">
+    <figure class="map" aria-label="Diagram: Local Knowledge supports a few partner agencies, and each partner serves several multi-location clients.">
+      <svg viewBox="0 0 960 300" role="img" aria-hidden="true">
+        <defs>
+          <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="var(--line)" stroke-width="1"/></pattern>
+        </defs>
+        <rect width="960" height="300" fill="url(#grid)" opacity=".55"/>
+        <g fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round">
+          <path d="M-10 230 C 200 210, 300 120, 480 150 S 760 260, 980 200"/>
+          <path d="M120 -10 C 160 120, 280 200, 300 320"/>
+          <path d="M700 -10 C 650 90, 760 170, 720 320"/>
+        </g>
+        <g stroke-width="2.5" stroke-dasharray="6 6" fill="none" stroke="var(--road)" opacity=".8">
+          <path d="M480 150 L230 90"/><path d="M480 150 L480 250"/><path d="M480 150 L740 95"/>
+        </g>
+        <g stroke-width="1.5" fill="none" stroke="var(--pin)" opacity=".55">
+          <path d="M230 90 L120 60"/><path d="M230 90 L140 160"/><path d="M230 90 L300 40"/>
+          <path d="M480 250 L380 270"/><path d="M480 250 L590 275"/>
+          <path d="M740 95 L850 60"/><path d="M740 95 L860 160"/><path d="M740 95 L640 40"/><path d="M740 95 L800 210"/>
+        </g>
+        <g fill="var(--muted)">
+          <circle cx="120" cy="60" r="6"/><circle cx="140" cy="160" r="6"/><circle cx="300" cy="40" r="6"/>
+          <circle cx="380" cy="270" r="6"/><circle cx="590" cy="275" r="6"/>
+          <circle cx="850" cy="60" r="6"/><circle cx="860" cy="160" r="6"/><circle cx="640" cy="40" r="6"/><circle cx="800" cy="210" r="6"/>
+        </g>
+        <g fill="var(--pin)">
+          <path transform="translate(230 90)" d="M0 0 C -12 -14 -14 -20 -14 -26 A14 14 0 1 1 14 -26 C 14 -20 12 -14 0 0Z"/>
+          <path transform="translate(480 250)" d="M0 0 C -12 -14 -14 -20 -14 -26 A14 14 0 1 1 14 -26 C 14 -20 12 -14 0 0Z"/>
+          <path transform="translate(740 95)" d="M0 0 C -12 -14 -14 -20 -14 -26 A14 14 0 1 1 14 -26 C 14 -20 12 -14 0 0Z"/>
+        </g>
+        <g fill="#fff"><circle cx="230" cy="64" r="5"/><circle cx="480" cy="224" r="5"/><circle cx="740" cy="69" r="5"/></g>
+        <path transform="translate(480 150) scale(1.5)" fill="var(--road)" d="M0 0 C -12 -14 -14 -20 -14 -26 A14 14 0 1 1 14 -26 C 14 -20 12 -14 0 0Z"/>
+        <circle cx="480" cy="111" r="7.5" fill="#fff"/>
+      </svg>
+      <figcaption class="map-legend"><span class="lg-lk">Local Knowledge: platform, setup and verification support</span><span class="lg-p">Partner agencies: own the client and the brand</span><span class="lg-c">Multi-location clients</span></figcaption>
+    </figure>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <ol>
+    <li><a href="#profile">Partner profile</a></li>
+    <li><a href="#onboarding">30-day onboarding</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#calculator">Earnings calculator</a></li>
+    <li><a href="#metrics">Success metrics</a></li>
+    <li><a href="#sheet">Sales sheet</a></li>
+    <li><a href="#questions">Open questions</a></li>
+  </ol>
+</nav>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>The kit in three lines</h2>
+      <div class="summary">
+        <div><b>Recruit the right agencies</b><span class="muted small">Small to mid-size agencies that already serve multi-location brands and have no listings offer.</span></div>
+        <div><b>First client live in 30 days</b><span class="muted small">A four-week path from signing to a pilot client's first report.</span></div>
+        <div><b>Watch four numbers</b><span class="muted small">Speed to first client, early selling, locations growth and retention.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="profile">
+    <div class="wrap">
+      <p class="eyebrow">01 · Who to recruit</p>
+      <h2>Ideal partner profile</h2>
+      <p>The best partners are small to mid-size agencies that already serve brands with several physical locations and have no listing management offer of their own.</p>
+      <div class="two">
+        <div class="panel">
+          <span class="tag g">Good fit</span>
+          <ul>
+            <li>Digital marketing, SEO and web design agencies with 5 or more multi-location clients</li>
+            <li>Agencies that already sell social media or Google Ads and want a recurring add-on</li>
+            <li>Teams of 5 to 50 people, with an account manager who owns client reporting</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <span class="tag p">Poor fit</span>
+          <ul>
+            <li>Freelancers with fewer than 3 clients</li>
+            <li>Agencies that compete on the lowest price</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="wide">
+      <div class="fit panel" id="fit">
+        <form id="fitForm" aria-describedby="fitHelp">
+          <h3 style="margin-bottom:.35rem">Partner fit check</h3>
+          <p class="muted small" id="fitHelp">Use the qualifying questions on a first call. Pick an answer for each and the verdict updates as you go.</p>
+
+          <fieldset class="q"><legend>1. How many of your clients have more than 5 locations?</legend>
+            <div class="opts">
+              <label><input type="radio" name="q1" value="0"><span>None</span></label>
+              <label><input type="radio" name="q1" value="1"><span>1 to 2</span></label>
+              <label><input type="radio" name="q1" value="2"><span>3 to 4</span></label>
+              <label><input type="radio" name="q1" value="3"><span>5 or more</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="q"><legend>2. Do you manage their Google Business Profiles today, and how?</legend>
+            <div class="opts">
+              <label><input type="radio" name="q2" value="3"><span>Yes, by hand</span></label>
+              <label><input type="radio" name="q2" value="2"><span>No, not yet</span></label>
+              <label><input type="radio" name="q2" value="1"><span>Yes, with another tool</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="q"><legend>3. Who would own this service internally?</legend>
+            <div class="opts">
+              <label><input type="radio" name="q3" value="3"><span>An account manager</span></label>
+              <label><input type="radio" name="q3" value="1"><span>The founder</span></label>
+              <label><input type="radio" name="q3" value="0"><span>No one yet</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="q"><legend>4. Do your clients ask for monthly performance reports?</legend>
+            <div class="opts">
+              <label><input type="radio" name="q4" value="2"><span>Yes</span></label>
+              <label><input type="radio" name="q4" value="1"><span>Sometimes</span></label>
+              <label><input type="radio" name="q4" value="0"><span>No</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="q"><legend>5. How many active clients do you have, and how do you usually win them?</legend>
+            <div class="opts">
+              <label><input type="radio" name="q5" value="2"><span>3 or more, on results</span></label>
+              <label><input type="radio" name="q5" value="price"><span>Mostly on lowest price</span></label>
+              <label><input type="radio" name="q5" value="small"><span>Fewer than 3 clients</span></label>
+            </div>
+          </fieldset>
+        </form>
+        <aside class="verdict" id="verdict" aria-live="polite" data-v="none">
+          <div class="muted small">Verdict</div>
+          <div class="big" id="vTitle">Answer the questions</div>
+          <div class="meter" aria-hidden="true"><i id="vMeter"></i></div>
+          <p class="small" id="vText" style="margin-bottom:.5rem">Five questions, about two minutes on a call.</p>
+          <ul id="vNotes"></ul>
+          <button class="btn" type="button" id="fitReset" style="margin-top:1rem">Start over</button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONBOARDING -->
+  <section id="onboarding">
+    <div class="wrap">
+      <p class="eyebrow">02 · How to onboard them</p>
+      <h2>30-day partner onboarding</h2>
+      <p>A partner should have its first client live within 30 days of signing. Tick items off as you go to use this as a checklist.</p>
+      <ol class="route" id="route">
+        <li><div class="dot"><b>1</b></div><div class="card">
+          <h3>Week 1 · Set up</h3>
+          <ul class="checks">
+            <li><label><input type="checkbox"><span>Sign the partner agreement</span></label></li>
+            <li><label><input type="checkbox"><span>Create the partner account</span></label></li>
+            <li><label><input type="checkbox"><span>Apply the partner's logo and colours to the dashboard</span></label></li>
+            <li><label><input type="checkbox"><span>Hold a 60-minute kickoff call</span></label></li>
+          </ul></div></li>
+        <li><div class="dot"><b>2</b></div><div class="card">
+          <h3>Week 2 · Train</h3>
+          <ul class="checks">
+            <li><label><input type="checkbox"><span>Walk the account manager through claiming profiles</span></label></li>
+            <li><label><input type="checkbox"><span>Review the listing data checklist and review responses</span></label></li>
+            <li><label><input type="checkbox"><span>Walk through the monthly performance report</span></label></li>
+            <li><label><input type="checkbox"><span>Share the sales sheet and the earnings calculator</span></label></li>
+          </ul></div></li>
+        <li><div class="dot"><b>3</b></div><div class="card">
+          <h3>Week 3 · First client</h3>
+          <ul class="checks">
+            <li><label><input type="checkbox"><span>Pick one pilot client with 5 or more locations</span></label></li>
+            <li><label><input type="checkbox"><span>Local Knowledge supports claiming and verification</span></label></li>
+            <li><label><input type="checkbox"><span>The partner leads the client conversation</span></label></li>
+          </ul></div></li>
+        <li><div class="dot"><b>4</b></div><div class="card">
+          <h3>Week 4 · Review</h3>
+          <ul class="checks">
+            <li><label><input type="checkbox"><span>Send the pilot client its first report</span></label></li>
+            <li><label><input type="checkbox"><span>Hold a 30-minute check-in to review results</span></label></li>
+            <li><label><input type="checkbox"><span>Agree the next 3 clients to approach</span></label></li>
+          </ul></div></li>
+      </ol>
+      <p class="progress" id="routeProgress" aria-live="polite">0 of 14 steps done</p>
+      <p class="after">After day 30, partners move to a monthly check-in.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <p class="eyebrow">03 · How they earn</p>
+      <h2>Pricing model</h2>
+      <p>Partners pay a wholesale price per location per month and set their own resale price. The figures below are examples only; Local Knowledge sets the real ones, and the calculator uses the same defaults.</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Item</th><th>Example (USD per location per month)</th><th>Who sets it</th></tr></thead>
+          <tbody>
+            <tr><td>Wholesale price</td><td class="num">$10</td><td>Local Knowledge</td></tr>
+            <tr><td>Suggested resale price</td><td class="num">$25</td><td>Partner, within a recommended range</td></tr>
+            <tr><td>Partner margin</td><td class="num">$15 <span class="muted small" style="font-weight:400;font-family:var(--body)">(60% of resale)</span></td><td>Result</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="decide"><strong>To decide:</strong> whether to add a one-time setup fee, a minimum number of locations per partner, and volume discounts above a set number of locations.</p>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section id="calculator">
+    <div class="wide">
+      <div class="wrap" style="padding:0">
+        <h2>Reseller earnings calculator</h2>
+        <p>Estimate a partner's monthly margin. Move the sliders or type your own prices.</p>
+      </div>
+      <div class="calc panel">
+        <form id="calcForm" onsubmit="return false">
+          <div class="field">
+            <label for="clients">Clients <output id="clientsOut" for="clients">5</output></label>
+            <input type="range" id="clients" min="1" max="50" value="5">
+          </div>
+          <div class="field">
+            <label for="locs">Average locations per client <output id="locsOut" for="locs">8</output></label>
+            <input type="range" id="locs" min="1" max="200" value="8">
+          </div>
+          <div class="field">
+            <label for="wholesale">Wholesale price</label>
+            <div class="money"><span>$</span><input type="number" id="wholesale" min="0" step="0.5" value="10" inputmode="decimal"><span>/loc/mo</span></div>
+          </div>
+          <div class="field">
+            <label for="resale">Your resale price</label>
+            <div class="money"><span>$</span><input type="number" id="resale" min="0" step="0.5" value="25" inputmode="decimal"><span>/loc/mo</span></div>
+            <p class="hint">Suggested: $25. Partners set their own within a recommended range.</p>
+          </div>
+          <button class="btn" type="button" id="calcReset">Reset to example prices</button>
+        </form>
+        <div class="out" aria-live="polite">
+          <div class="label">Partner margin per month</div>
+          <div class="hero" id="mMonth">$600</div>
+          <div class="sub" id="mSub">across 40 locations · $7,200 a year</div>
+          <div class="stats">
+            <div><b id="sRevenue">$1,000</b><span>Billed to clients per month</span></div>
+            <div><b id="sPct">60%</b><span>Margin as share of resale</span></div>
+            <div><b id="sPerClient">$120</b><span>Margin per client per month</span></div>
+            <div><b id="sLK">$400</b><span>Local Knowledge revenue per month</span></div>
+          </div>
+          <div class="split">
+            <div class="bar" role="img" id="splitBar" aria-label="Split of each client dollar"><i class="w" id="barW" style="width:40%"></i><i class="m" id="barM" style="width:60%"></i></div>
+            <div class="keys"><span>Wholesale to Local Knowledge</span><span>Partner margin</span></div>
+          </div>
+          <p class="warn" id="calcWarn">The resale price is below the wholesale price, so the partner loses money on every location.</p>
+        </div>
+      </div>
+      <p class="muted small wrap" style="padding:0;margin-top:.75rem">Example prices only. Nothing you enter leaves your browser.</p>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section id="metrics">
+    <div class="wrap">
+      <p class="eyebrow">04 · How to know they are healthy</p>
+      <h2>Partner success metrics</h2>
+      <p>Four numbers show whether a partner is healthy. The targets are proposed starting points to adjust once real data exists.</p>
+      <div class="metrics">
+        <div class="metric"><h3>Time to first client live</h3><div class="t">≤ 30 days</div><p>Early success predicts retention.</p></div>
+        <div class="metric"><h3>Clients added in first 90 days</h3><div class="t">3 or more</div><p>Shows the partner is actually selling.</p></div>
+        <div class="metric"><h3>Locations under management</h3><div class="t">Up month on month</div><p>Drives revenue for both sides.</p></div>
+        <div class="metric"><h3>Client retention after 12 months</h3><div class="t">90% or more</div><p>Shows the service delivers results.</p></div>
+      </div>
+      <p class="rescue"><strong>Rescue call:</strong> partners with no new client after 60 days get a call to find out what is blocking them.</p>
+    </div>
+  </section>
+
+  <!-- SALES SHEET -->
+  <section id="sheet">
+    <div class="wrap">
+      <p class="eyebrow">05 · What partners hand to clients</p>
+      <h2>Partner sales sheet</h2>
+      <p>A one-page draft partners can put their own logo on and hand to prospective clients. <button class="btn" type="button" id="printSheet" style="margin-left:.25rem">Print or save as PDF</button></p>
+      <article class="sheet" aria-label="Sales sheet draft">
+        <div class="logo-slot">Your logo here</div>
+        <h3>Get found by customers searching near you</h3>
+        <p>When people search "near me", Google shows three local listings at the top of the page. We claim, correct and manage your business profiles so yours is one of them.</p>
+        <h4>What you get</h4>
+        <ul>
+          <li>Every location claimed and verified on Google Maps</li>
+          <li>Accurate name, address, phone, hours and categories across Google, Apple, Bing and more</li>
+          <li>Review responses and regular Google Posts</li>
+          <li>A monthly report: views, calls, direction requests and website clicks per location</li>
+        </ul>
+        <h4>Proof it works</h4>
+        <div class="proof">
+          <div><b>+XX%</b><span>Google impressions</span></div>
+          <div><b>+XX%</b><span>Customer actions</span></div>
+          <p>[Example layout. Add a real client result here, with that client's permission: monthly averages before and after the program began. Customer actions are directions plus website clicks.]</p>
+        </div>
+        <div class="next"><strong>Next step</strong><em>[Partner name, contact details]</em></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section id="questions">
+    <div class="wrap">
+      <p class="eyebrow">06 · Before launch</p>
+      <h2>Open questions for Local Knowledge</h2>
+      <ol class="qs">
+        <li>What are the real wholesale and suggested resale prices?</li>
+        <li>Does the partner or Local Knowledge handle client support after onboarding?</li>
+        <li>Is there a minimum number of locations or a setup fee?</li>
+        <li>Which regions open first, North America or Southeast Asia?</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--ink)">Made by Shorouk</strong> · Customer Success and Operations, 7+ years in onboarding and implementation across SaaS in MENA.</p>
+    <p>An independent proposal built from public information. All criteria, prices and targets are my own placeholders. Not affiliated with or endorsed by Local Knowledge.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---------- fit check ----------
+  var form = document.getElementById('fitForm');
+  var vBox = document.getElementById('verdict'), vTitle = document.getElementById('vTitle'),
+      vText = document.getElementById('vText'), vNotes = document.getElementById('vNotes'), vMeter = document.getElementById('vMeter');
+  var MAX = 13;
+  function val(n){ var el = form.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : null; }
+  function fit(){
+    var names = ['q1','q2','q3','q4','q5'], answered = 0, score = 0, notes = [], flag = null;
+    names.forEach(function(n){
+      var v = val(n); if (v === null) return; answered++;
+      if (v === 'price') flag = 'Competes on the lowest price.';
+      else if (v === 'small') flag = 'Fewer than 3 active clients.';
+      else score += Number(v);
+    });
+    var q1 = val('q1'), q2 = val('q2'), q3 = val('q3');
+    if (q1 === '0' || q1 === '1') notes.push('Few multi-location clients: the core offer has little to land on.');
+    if (q2 === '1') notes.push('Already uses another tool: ask what would make them switch.');
+    if (q3 === '0') notes.push('No owner yet: agree who runs it before signing.');
+    if (q2 === '3') notes.push('Manages profiles by hand today: strong time-saving story.');
+    vMeter.style.width = Math.round(score / MAX * 100) + '%';
+    vNotes.innerHTML = '';
+    notes.concat(flag ? [flag] : []).forEach(function(t){ var li = document.createElement('li'); li.textContent = t; vNotes.appendChild(li); });
+    if (answered === 0){ vBox.dataset.v = 'none'; vTitle.textContent = 'Answer the questions'; vText.textContent = 'Five questions, about two minutes on a call.'; return; }
+    if (flag){ vBox.dataset.v = 'poor'; vTitle.textContent = 'Poor fit'; vText.textContent = 'Not a partner to recruit now.'; return; }
+    if (answered < names.length){ vBox.dataset.v = 'none'; vTitle.textContent = score + ' of ' + MAX + ' so far'; vText.textContent = (names.length - answered) + ' question' + (names.length - answered > 1 ? 's' : '') + ' left.'; return; }
+    if (score >= 10){ vBox.dataset.v = 'good'; vTitle.textContent = 'Good fit'; vText.textContent = score + ' of ' + MAX + '. Move to the partner agreement and book the kickoff.'; }
+    else if (score >= 6){ vBox.dataset.v = 'maybe'; vTitle.textContent = 'Worth a second call'; vText.textContent = score + ' of ' + MAX + '. Close the gaps below before signing.'; }
+    else { vBox.dataset.v = 'poor'; vTitle.textContent = 'Poor fit'; vText.textContent = score + ' of ' + MAX + '. Revisit in six months.'; }
+  }
+  form.addEventListener('change', fit);
+  document.getElementById('fitReset').addEventListener('click', function(){ form.reset(); fit(); });
+
+  // ---------- onboarding checklist ----------
+  var boxes = document.querySelectorAll('#route input[type=checkbox]');
+  var prog = document.getElementById('routeProgress');
+  function route(){ var d = 0; boxes.forEach(function(b){ if (b.checked) d++; }); prog.textContent = d + ' of ' + boxes.length + ' steps done' + (d === boxes.length ? ' · first client live' : ''); }
+  boxes.forEach(function(b){ b.addEventListener('change', route); }); route();
+
+  // ---------- calculator ----------
+  var $ = function(id){ return document.getElementById(id); };
+  var usd = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
+  var usd2 = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:2});
+  function money(n){ return Math.abs(n) < 100 && n % 1 !== 0 ? usd2.format(n) : usd.format(n); }
+  function num(id){ var n = parseFloat($(id).value); return isFinite(n) && n >= 0 ? n : 0; }
+  function calc(){
+    var clients = num('clients'), locs = num('locs'), w = num('wholesale'), r = num('resale');
+    $('clientsOut').textContent = clients; $('locsOut').textContent = locs;
+    var total = clients * locs, margin = (r - w) * total, billed = r * total, lk = w * total;
+    $('mMonth').textContent = money(margin);
+    $('mSub').textContent = 'across ' + total.toLocaleString('en-US') + ' location' + (total === 1 ? '' : 's') + ' · ' + money(margin * 12) + ' a year';
+    $('sRevenue').textContent = money(billed);
+    $('sPct').textContent = r > 0 ? Math.round((r - w) / r * 100) + '%' : '–';
+    $('sPerClient').textContent = money((r - w) * locs);
+    $('sLK').textContent = money(lk);
+    var wp = r > 0 ? Math.min(100, Math.max(0, w / r * 100)) : 100;
+    $('barW').style.width = wp + '%'; $('barM').style.width = (100 - wp) + '%';
+    $('splitBar').setAttribute('aria-label', 'Of each client dollar, ' + Math.round(wp) + '% is wholesale and ' + Math.round(100 - wp) + '% is partner margin');
+    $('calcWarn').classList.toggle('show', r < w);
+    $('mMonth').style.color = margin < 0 ? 'var(--poor)' : '';
+  }
+  ['clients','locs','wholesale','resale'].forEach(function(id){ $(id).addEventListener('input', calc); });
+  $('calcReset').addEventListener('click', function(){ $('wholesale').value = 10; $('resale').value = 25; calc(); });
+  calc();
+
+  $('printSheet').addEventListener('click', function(){ window.print(); });
+})();
+</script>
+</body>
+</html>
