@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reseller Partner Kit</title>
-<meta name="description" content="An independent proposal by Shorouk: a white-label reseller partner kit for Local Knowledge, covering who to recruit, how to onboard them, how they earn and how to know they are healthy.">
+<title>Reseller Earnings Calculator</title>
+<meta name="description" content="Estimate what an agency earns each month by reselling Local Knowledge listing management under its own brand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -183,238 +183,21 @@ section{padding:3.5rem 0 0;scroll-margin-top:3rem}
 footer{margin-top:4.5rem;border-top:1px solid var(--line);padding:2rem 0 3rem;font-size:.92rem;color:var(--muted)}
 footer p{margin-bottom:.5rem}
 
-@media print{
-  body{background:#fff}
-  header,nav.toc,section:not(#sheet),footer{display:none}
-  #sheet{padding:0}
-  #sheet > .wrap > :not(.sheet){display:none}
-  .sheet{box-shadow:none;border:0}
-}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="wrap">
-    <span class="disclaimer">An independent proposal by Shorouk · not affiliated with Local Knowledge</span>
-    <p class="eyebrow">Reseller Partner Kit · first draft</p>
-    <h1>More pins on the map, without a local sales team.</h1>
-    <p class="lede">A white-label program lets agencies sell Local Knowledge's listing management and Brand SoLoMo reporting under their own brand. That is how Local Knowledge can reach North America and Southeast Asia without hiring sales teams in each market. This kit covers what partners need to get started: who to recruit, how to onboard them, how they earn, and how to know they are healthy.</p>
-    <p class="muted small">All prices and targets are placeholders for Local Knowledge to set.</p>
-  </div>
-  <div class="wide">
-    <figure class="map" aria-label="Diagram: Local Knowledge supports a few partner agencies, and each partner serves several multi-location clients.">
-      <svg viewBox="0 0 960 300" role="img" aria-hidden="true">
-        <defs>
-          <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="var(--line)" stroke-width="1"/></pattern>
-        </defs>
-        <rect width="960" height="300" fill="url(#grid)" opacity=".55"/>
-        <g fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round">
-          <path d="M-10 230 C 200 210, 300 120, 480 150 S 760 260, 980 200"/>
-          <path d="M120 -10 C 160 120, 280 200, 300 320"/>
-          <path d="M700 -10 C 650 90, 760 170, 720 320"/>
-        </g>
-        <g stroke-width="2.5" stroke-dasharray="6 6" fill="none" stroke="var(--road)" opacity=".8">
-          <path d="M480 150 L230 90"/><path d="M480 150 L480 250"/><path d="M480 150 L740 95"/>
-        </g>
-        <g stroke-width="1.5" fill="none" stroke="var(--pin)" opacity=".55">
-          <path d="M230 90 L120 60"/><path d="M230 90 L140 160"/><path d="M230 90 L300 40"/>
-          <path d="M480 250 L380 270"/><path d="M480 250 L590 275"/>
-          <path d="M740 95 L850 60"/><path d="M740 95 L860 160"/><path d="M740 95 L640 40"/><path d="M740 95 L800 210"/>
-        </g>
-        <g fill="var(--muted)">
-          <circle cx="120" cy="60" r="6"/><circle cx="140" cy="160" r="6"/><circle cx="300" cy="40" r="6"/>
-          <circle cx="380" cy="270" r="6"/><circle cx="590" cy="275" r="6"/>
-          <circle cx="850" cy="60" r="6"/><circle cx="860" cy="160" r="6"/><circle cx="640" cy="40" r="6"/><circle cx="800" cy="210" r="6"/>
-        </g>
-        <g fill="var(--pin)">
-          <path transform="translate(230 90)" d="M0 0 C -12 -14 -14 -20 -14 -26 A14 14 0 1 1 14 -26 C 14 -20 12 -14 0 0Z"/>
-          <path transform="translate(480 250)" d="M0 0 C -12 -14 -14 -20 -14 -26 A14 14 0 1 1 14 -26 C 14 -20 12 -14 0 0Z"/>
-          <path transform="translate(740 95)" d="M0 0 C -12 -14 -14 -20 -14 -26 A14 14 0 1 1 14 -26 C 14 -20 12 -14 0 0Z"/>
-        </g>
-        <g fill="#fff"><circle cx="230" cy="64" r="5"/><circle cx="480" cy="224" r="5"/><circle cx="740" cy="69" r="5"/></g>
-        <path transform="translate(480 150) scale(1.5)" fill="var(--road)" d="M0 0 C -12 -14 -14 -20 -14 -26 A14 14 0 1 1 14 -26 C 14 -20 12 -14 0 0Z"/>
-        <circle cx="480" cy="111" r="7.5" fill="#fff"/>
-      </svg>
-      <figcaption class="map-legend"><span class="lg-lk">Local Knowledge: platform, setup and verification support</span><span class="lg-p">Partner agencies: own the client and the brand</span><span class="lg-c">Multi-location clients</span></figcaption>
-    </figure>
+    <p class="eyebrow">Local Knowledge · white-label reseller program</p>
+    <h1>What could your agency earn?</h1>
+    <p class="lede">Resell Local Knowledge's listing management and Brand SoLoMo reporting under your own brand. You pay a wholesale price per location each month and set your own resale price. Enter your numbers to see your margin.</p>
   </div>
 </header>
-
-<nav class="toc" aria-label="Sections">
-  <ol>
-    <li><a href="#profile">Partner profile</a></li>
-    <li><a href="#onboarding">30-day onboarding</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#calculator">Earnings calculator</a></li>
-    <li><a href="#metrics">Success metrics</a></li>
-    <li><a href="#sheet">Sales sheet</a></li>
-    <li><a href="#questions">Open questions</a></li>
-  </ol>
-</nav>
-
 <main>
-  <section>
-    <div class="wrap">
-      <h2>The kit in three lines</h2>
-      <div class="summary">
-        <div><b>Recruit the right agencies</b><span class="muted small">Small to mid-size agencies that already serve multi-location brands and have no listings offer.</span></div>
-        <div><b>First client live in 30 days</b><span class="muted small">A four-week path from signing to a pilot client's first report.</span></div>
-        <div><b>Watch four numbers</b><span class="muted small">Speed to first client, early selling, locations growth and retention.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROFILE -->
-  <section id="profile">
-    <div class="wrap">
-      <p class="eyebrow">01 · Who to recruit</p>
-      <h2>Ideal partner profile</h2>
-      <p>The best partners are small to mid-size agencies that already serve brands with several physical locations and have no listing management offer of their own.</p>
-      <div class="two">
-        <div class="panel">
-          <span class="tag g">Good fit</span>
-          <ul>
-            <li>Digital marketing, SEO and web design agencies with 5 or more multi-location clients</li>
-            <li>Agencies that already sell social media or Google Ads and want a recurring add-on</li>
-            <li>Teams of 5 to 50 people, with an account manager who owns client reporting</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <span class="tag p">Poor fit</span>
-          <ul>
-            <li>Freelancers with fewer than 3 clients</li>
-            <li>Agencies that compete on the lowest price</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<!-- CALCULATOR -->
+  <section id="calculator" style="padding-top:1rem">
     <div class="wide">
-      <div class="fit panel" id="fit">
-        <form id="fitForm" aria-describedby="fitHelp">
-          <h3 style="margin-bottom:.35rem">Partner fit check</h3>
-          <p class="muted small" id="fitHelp">Use the qualifying questions on a first call. Pick an answer for each and the verdict updates as you go.</p>
-
-          <fieldset class="q"><legend>1. How many of your clients have more than 5 locations?</legend>
-            <div class="opts">
-              <label><input type="radio" name="q1" value="0"><span>None</span></label>
-              <label><input type="radio" name="q1" value="1"><span>1 to 2</span></label>
-              <label><input type="radio" name="q1" value="2"><span>3 to 4</span></label>
-              <label><input type="radio" name="q1" value="3"><span>5 or more</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="q"><legend>2. Do you manage their Google Business Profiles today, and how?</legend>
-            <div class="opts">
-              <label><input type="radio" name="q2" value="3"><span>Yes, by hand</span></label>
-              <label><input type="radio" name="q2" value="2"><span>No, not yet</span></label>
-              <label><input type="radio" name="q2" value="1"><span>Yes, with another tool</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="q"><legend>3. Who would own this service internally?</legend>
-            <div class="opts">
-              <label><input type="radio" name="q3" value="3"><span>An account manager</span></label>
-              <label><input type="radio" name="q3" value="1"><span>The founder</span></label>
-              <label><input type="radio" name="q3" value="0"><span>No one yet</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="q"><legend>4. Do your clients ask for monthly performance reports?</legend>
-            <div class="opts">
-              <label><input type="radio" name="q4" value="2"><span>Yes</span></label>
-              <label><input type="radio" name="q4" value="1"><span>Sometimes</span></label>
-              <label><input type="radio" name="q4" value="0"><span>No</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="q"><legend>5. How many active clients do you have, and how do you usually win them?</legend>
-            <div class="opts">
-              <label><input type="radio" name="q5" value="2"><span>3 or more, on results</span></label>
-              <label><input type="radio" name="q5" value="price"><span>Mostly on lowest price</span></label>
-              <label><input type="radio" name="q5" value="small"><span>Fewer than 3 clients</span></label>
-            </div>
-          </fieldset>
-        </form>
-        <aside class="verdict" id="verdict" aria-live="polite" data-v="none">
-          <div class="muted small">Verdict</div>
-          <div class="big" id="vTitle">Answer the questions</div>
-          <div class="meter" aria-hidden="true"><i id="vMeter"></i></div>
-          <p class="small" id="vText" style="margin-bottom:.5rem">Five questions, about two minutes on a call.</p>
-          <ul id="vNotes"></ul>
-          <button class="btn" type="button" id="fitReset" style="margin-top:1rem">Start over</button>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ONBOARDING -->
-  <section id="onboarding">
-    <div class="wrap">
-      <p class="eyebrow">02 · How to onboard them</p>
-      <h2>30-day partner onboarding</h2>
-      <p>A partner should have its first client live within 30 days of signing. Tick items off as you go to use this as a checklist.</p>
-      <ol class="route" id="route">
-        <li><div class="dot"><b>1</b></div><div class="card">
-          <h3>Week 1 · Set up</h3>
-          <ul class="checks">
-            <li><label><input type="checkbox"><span>Sign the partner agreement</span></label></li>
-            <li><label><input type="checkbox"><span>Create the partner account</span></label></li>
-            <li><label><input type="checkbox"><span>Apply the partner's logo and colours to the dashboard</span></label></li>
-            <li><label><input type="checkbox"><span>Hold a 60-minute kickoff call</span></label></li>
-          </ul></div></li>
-        <li><div class="dot"><b>2</b></div><div class="card">
-          <h3>Week 2 · Train</h3>
-          <ul class="checks">
-            <li><label><input type="checkbox"><span>Walk the account manager through claiming profiles</span></label></li>
-            <li><label><input type="checkbox"><span>Review the listing data checklist and review responses</span></label></li>
-            <li><label><input type="checkbox"><span>Walk through the monthly performance report</span></label></li>
-            <li><label><input type="checkbox"><span>Share the sales sheet and the earnings calculator</span></label></li>
-          </ul></div></li>
-        <li><div class="dot"><b>3</b></div><div class="card">
-          <h3>Week 3 · First client</h3>
-          <ul class="checks">
-            <li><label><input type="checkbox"><span>Pick one pilot client with 5 or more locations</span></label></li>
-            <li><label><input type="checkbox"><span>Local Knowledge supports claiming and verification</span></label></li>
-            <li><label><input type="checkbox"><span>The partner leads the client conversation</span></label></li>
-          </ul></div></li>
-        <li><div class="dot"><b>4</b></div><div class="card">
-          <h3>Week 4 · Review</h3>
-          <ul class="checks">
-            <li><label><input type="checkbox"><span>Send the pilot client its first report</span></label></li>
-            <li><label><input type="checkbox"><span>Hold a 30-minute check-in to review results</span></label></li>
-            <li><label><input type="checkbox"><span>Agree the next 3 clients to approach</span></label></li>
-          </ul></div></li>
-      </ol>
-      <p class="progress" id="routeProgress" aria-live="polite">0 of 14 steps done</p>
-      <p class="after">After day 30, partners move to a monthly check-in.</p>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="wrap">
-      <p class="eyebrow">03 · How they earn</p>
-      <h2>Pricing model</h2>
-      <p>Partners pay a wholesale price per location per month and set their own resale price. The figures below are examples only; Local Knowledge sets the real ones, and the calculator uses the same defaults.</p>
-      <div class="tbl-wrap">
-        <table class="tbl">
-          <thead><tr><th>Item</th><th>Example (USD per location per month)</th><th>Who sets it</th></tr></thead>
-          <tbody>
-            <tr><td>Wholesale price</td><td class="num">$10</td><td>Local Knowledge</td></tr>
-            <tr><td>Suggested resale price</td><td class="num">$25</td><td>Partner, within a recommended range</td></tr>
-            <tr><td>Partner margin</td><td class="num">$15 <span class="muted small" style="font-weight:400;font-family:var(--body)">(60% of resale)</span></td><td>Result</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="decide"><strong>To decide:</strong> whether to add a one-time setup fee, a minimum number of locations per partner, and volume discounts above a set number of locations.</p>
-    </div>
-  </section>
-
-  <!-- CALCULATOR -->
-  <section id="calculator">
-    <div class="wide">
-      <div class="wrap" style="padding:0">
-        <h2>Reseller earnings calculator</h2>
-        <p>Estimate a partner's monthly margin. Move the sliders or type your own prices.</p>
-      </div>
       <div class="calc panel">
         <form id="calcForm" onsubmit="return false">
           <div class="field">
@@ -457,112 +240,24 @@ footer p{margin-bottom:.5rem}
     </div>
   </section>
 
-  <!-- METRICS -->
-  <section id="metrics">
+    <section>
     <div class="wrap">
-      <p class="eyebrow">04 · How to know they are healthy</p>
-      <h2>Partner success metrics</h2>
-      <p>Four numbers show whether a partner is healthy. The targets are proposed starting points to adjust once real data exists.</p>
-      <div class="metrics">
-        <div class="metric"><h3>Time to first client live</h3><div class="t">≤ 30 days</div><p>Early success predicts retention.</p></div>
-        <div class="metric"><h3>Clients added in first 90 days</h3><div class="t">3 or more</div><p>Shows the partner is actually selling.</p></div>
-        <div class="metric"><h3>Locations under management</h3><div class="t">Up month on month</div><p>Drives revenue for both sides.</p></div>
-        <div class="metric"><h3>Client retention after 12 months</h3><div class="t">90% or more</div><p>Shows the service delivers results.</p></div>
+      <h2>How it works</h2>
+      <div class="summary">
+        <div><b>You sell</b><span class="muted small">Listing management and monthly reports to your multi-location clients, under your logo.</span></div>
+        <div><b>Local Knowledge delivers</b><span class="muted small">The platform, plus support claiming and verifying every location.</span></div>
+        <div><b>You keep the margin</b><span class="muted small">The difference between your resale price and the wholesale price, every month.</span></div>
       </div>
-      <p class="rescue"><strong>Rescue call:</strong> partners with no new client after 60 days get a call to find out what is blocking them.</p>
-    </div>
-  </section>
-
-  <!-- SALES SHEET -->
-  <section id="sheet">
-    <div class="wrap">
-      <p class="eyebrow">05 · What partners hand to clients</p>
-      <h2>Partner sales sheet</h2>
-      <p>A one-page draft partners can put their own logo on and hand to prospective clients. <button class="btn" type="button" id="printSheet" style="margin-left:.25rem">Print or save as PDF</button></p>
-      <article class="sheet" aria-label="Sales sheet draft">
-        <div class="logo-slot">Your logo here</div>
-        <h3>Get found by customers searching near you</h3>
-        <p>When people search "near me", Google shows three local listings at the top of the page. We claim, correct and manage your business profiles so yours is one of them.</p>
-        <h4>What you get</h4>
-        <ul>
-          <li>Every location claimed and verified on Google Maps</li>
-          <li>Accurate name, address, phone, hours and categories across Google, Apple, Bing and more</li>
-          <li>Review responses and regular Google Posts</li>
-          <li>A monthly report: views, calls, direction requests and website clicks per location</li>
-        </ul>
-        <h4>Proof it works</h4>
-        <div class="proof">
-          <div><b>+XX%</b><span>Google impressions</span></div>
-          <div><b>+XX%</b><span>Customer actions</span></div>
-          <p>[Example layout. Add a real client result here, with that client's permission: monthly averages before and after the program began. Customer actions are directions plus website clicks.]</p>
-        </div>
-        <div class="next"><strong>Next step</strong><em>[Partner name, contact details]</em></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- QUESTIONS -->
-  <section id="questions">
-    <div class="wrap">
-      <p class="eyebrow">06 · Before launch</p>
-      <h2>Open questions for Local Knowledge</h2>
-      <ol class="qs">
-        <li>What are the real wholesale and suggested resale prices?</li>
-        <li>Does the partner or Local Knowledge handle client support after onboarding?</li>
-        <li>Is there a minimum number of locations or a setup fee?</li>
-        <li>Which regions open first, North America or Southeast Asia?</li>
-      </ol>
     </div>
   </section>
 </main>
-
 <footer>
   <div class="wrap">
-    <p><strong style="color:var(--ink)">Made by Shorouk</strong> · Customer Success and Operations, 7+ years in onboarding and implementation across SaaS in MENA.</p>
-    <p>An independent proposal built from public information. All criteria, prices and targets are my own placeholders. Not affiliated with or endorsed by Local Knowledge.</p>
+    <p>Prices shown are examples only, not Local Knowledge's real pricing. Draft prepared by Shorouk.</p>
   </div>
 </footer>
-
 <script>
 (function(){
-  // ---------- fit check ----------
-  var form = document.getElementById('fitForm');
-  var vBox = document.getElementById('verdict'), vTitle = document.getElementById('vTitle'),
-      vText = document.getElementById('vText'), vNotes = document.getElementById('vNotes'), vMeter = document.getElementById('vMeter');
-  var MAX = 13;
-  function val(n){ var el = form.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : null; }
-  function fit(){
-    var names = ['q1','q2','q3','q4','q5'], answered = 0, score = 0, notes = [], flag = null;
-    names.forEach(function(n){
-      var v = val(n); if (v === null) return; answered++;
-      if (v === 'price') flag = 'Competes on the lowest price.';
-      else if (v === 'small') flag = 'Fewer than 3 active clients.';
-      else score += Number(v);
-    });
-    var q1 = val('q1'), q2 = val('q2'), q3 = val('q3');
-    if (q1 === '0' || q1 === '1') notes.push('Few multi-location clients: the core offer has little to land on.');
-    if (q2 === '1') notes.push('Already uses another tool: ask what would make them switch.');
-    if (q3 === '0') notes.push('No owner yet: agree who runs it before signing.');
-    if (q2 === '3') notes.push('Manages profiles by hand today: strong time-saving story.');
-    vMeter.style.width = Math.round(score / MAX * 100) + '%';
-    vNotes.innerHTML = '';
-    notes.concat(flag ? [flag] : []).forEach(function(t){ var li = document.createElement('li'); li.textContent = t; vNotes.appendChild(li); });
-    if (answered === 0){ vBox.dataset.v = 'none'; vTitle.textContent = 'Answer the questions'; vText.textContent = 'Five questions, about two minutes on a call.'; return; }
-    if (flag){ vBox.dataset.v = 'poor'; vTitle.textContent = 'Poor fit'; vText.textContent = 'Not a partner to recruit now.'; return; }
-    if (answered < names.length){ vBox.dataset.v = 'none'; vTitle.textContent = score + ' of ' + MAX + ' so far'; vText.textContent = (names.length - answered) + ' question' + (names.length - answered > 1 ? 's' : '') + ' left.'; return; }
-    if (score >= 10){ vBox.dataset.v = 'good'; vTitle.textContent = 'Good fit'; vText.textContent = score + ' of ' + MAX + '. Move to the partner agreement and book the kickoff.'; }
-    else if (score >= 6){ vBox.dataset.v = 'maybe'; vTitle.textContent = 'Worth a second call'; vText.textContent = score + ' of ' + MAX + '. Close the gaps below before signing.'; }
-    else { vBox.dataset.v = 'poor'; vTitle.textContent = 'Poor fit'; vText.textContent = score + ' of ' + MAX + '. Revisit in six months.'; }
-  }
-  form.addEventListener('change', fit);
-  document.getElementById('fitReset').addEventListener('click', function(){ form.reset(); fit(); });
-
-  // ---------- onboarding checklist ----------
-  var boxes = document.querySelectorAll('#route input[type=checkbox]');
-  var prog = document.getElementById('routeProgress');
-  function route(){ var d = 0; boxes.forEach(function(b){ if (b.checked) d++; }); prog.textContent = d + ' of ' + boxes.length + ' steps done' + (d === boxes.length ? ' · first client live' : ''); }
-  boxes.forEach(function(b){ b.addEventListener('change', route); }); route();
-
   // ---------- calculator ----------
   var $ = function(id){ return document.getElementById(id); };
   var usd = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
@@ -589,7 +284,6 @@ footer p{margin-bottom:.5rem}
   $('calcReset').addEventListener('click', function(){ $('wholesale').value = 10; $('resale').value = 25; calc(); });
   calc();
 
-  $('printSheet').addEventListener('click', function(){ window.print(); });
 })();
 </script>
 </body>
