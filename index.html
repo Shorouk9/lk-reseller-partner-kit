@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reseller Earnings Calculator</title>
-<meta name="description" content="Estimate what an agency earns by reselling Local Knowledge listing management under its own brand: monthly margin, profit after team costs and a 12-month projection.">
+<meta name="description" content="Estimate what an agency earns by reselling Local Knowledge listing management under its own brand: monthly margin and a 12-month projection.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -100,7 +100,7 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:2rem 0 3rem;font
   <div class="wrap">
     <p class="eyebrow">Local Knowledge · white-label reseller program</p>
     <h1>What could your agency earn?</h1>
-    <p class="lede">Resell Local Knowledge's listing management and Brand SoLoMo reporting under your own brand. You pay a wholesale price per location each month and set your own resale price. Enter your numbers to see your margin, your profit after team time, and your first year.</p>
+    <p class="lede">Resell Local Knowledge's listing management and Brand SoLoMo reporting under your own brand. You pay a wholesale price per location each month and set your own resale price. Enter your numbers to see your monthly margin and your first year.</p>
   </div>
 </header>
 <main>
@@ -140,33 +140,9 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:2rem 0 3rem;font
                 <div class="money"><span>$</span><input type="number" id="lkSetup" min="0" step="5" value="0" inputmode="decimal"><span>once</span></div>
               </div>
             </div>
-            <div class="row2">
-              <div class="field">
-                <label for="volAt">Volume discount from</label>
-                <div class="money"><input type="number" id="volAt" min="0" step="10" value="250" inputmode="numeric"><span>locations</span></div>
-              </div>
-              <div class="field">
-                <label for="volPct">Discount on wholesale</label>
-                <div class="money"><input type="number" id="volPct" min="0" max="100" step="1" value="10" inputmode="decimal"><span>%</span></div>
-              </div>
-            </div>
-            <p class="hint">Suggested resale: $25. Setup fees and volume discounts are open decisions in the kit, so the defaults here are examples.</p>
+            <p class="hint">Suggested resale: $25. The setup fee is still an open decision, so the default here is an example.</p>
           </fieldset>
 
-          <fieldset>
-            <legend>Your team's cost</legend>
-            <div class="row2">
-              <div class="field">
-                <label for="mins">Team time per location</label>
-                <div class="money"><input type="number" id="mins" min="0" step="5" value="15" inputmode="numeric"><span>min / month</span></div>
-              </div>
-              <div class="field">
-                <label for="hourly">Team cost per hour</label>
-                <div class="money"><span>$</span><input type="number" id="hourly" min="0" step="1" value="20" inputmode="decimal"></div>
-              </div>
-            </div>
-            <p class="hint">Reviews, client calls and sending the monthly report.</p>
-          </fieldset>
 
           <fieldset>
             <legend>Growth over 12 months</legend>
@@ -186,26 +162,23 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:2rem 0 3rem;font
 
         <div class="out" aria-live="polite">
           <div class="box">
-            <div class="label">Your profit per month</div>
+            <div class="label">Your margin per month</div>
             <div class="hero" id="mProfit">$0</div>
             <div class="sub" id="mSub"></div>
             <div class="stats">
-              <div><b id="sMargin">$0</b><span>Margin before team cost</span></div>
-              <div><b id="sTeam">$0</b><span>Team cost per month</span></div>
               <div><b id="sBilled">$0</b><span>Billed to clients per month</span></div>
               <div><b id="sSetup">$0</b><span>Setup fees, first month</span></div>
-              <div><b id="sPerClient">$0</b><span>Profit per client per month</span></div>
+              <div><b id="sPerClient">$0</b><span>Margin per client per month</span></div>
               <div><b id="sLK">$0</b><span>Local Knowledge revenue per month</span></div>
             </div>
             <div class="split">
-              <div class="bar" role="img" id="splitBar"><i class="w" id="barW"></i><i class="c" id="barC"></i><i class="m" id="barM"></i></div>
-              <div class="keys"><span class="kw">Wholesale</span><span class="kc">Team cost</span><span class="km">Your profit</span></div>
+              <div class="bar" role="img" id="splitBar"><i class="w" id="barW"></i><i class="m" id="barM"></i></div>
+              <div class="keys"><span class="kw">Wholesale to Local Knowledge</span><span class="km">Your margin</span></div>
             </div>
             <p class="warn" id="calcWarn"></p>
-            <p class="note" id="volNote"></p>
           </div>
           <div class="year">
-            <div class="top"><span class="label">Profit in the first 12 months, including setup fees</span><b id="yTotal">$0</b></div>
+            <div class="top"><span class="label">Margin in the first 12 months, including setup fees</span><b id="yTotal">$0</b></div>
             <div class="months" id="months" aria-hidden="true"></div>
             <div class="mlabels"><span>Month 1</span><span>Month 12</span></div>
             <p class="small muted" id="ySub" style="margin:.6rem 0 0"></p>
@@ -235,18 +208,14 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:2rem 0 3rem;font
 <script>
 (function(){
   var $ = function(id){ return document.getElementById(id); };
-  var DEFAULTS = {clients:5, locs:8, wholesale:10, resale:25, setup:50, lkSetup:0, volAt:250, volPct:10, mins:15, hourly:20, newPm:1, churn:1};
+  var DEFAULTS = {clients:5, locs:8, wholesale:10, resale:25, setup:50, lkSetup:0, newPm:1, churn:1};
   var usd = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
   function num(id){ var n = parseFloat($(id).value); return isFinite(n) && n >= 0 ? n : 0; }
 
-  // Wholesale per location for a given number of locations under management
-  function wholesaleAt(L, v){ return (v.volAt > 0 && L >= v.volAt) ? v.wholesale * (1 - Math.min(v.volPct, 100) / 100) : v.wholesale; }
-
   // One month's numbers for a client count (can be fractional during the projection)
   function month(clients, v){
-    var L = clients * v.locs, w = wholesaleAt(L, v);
-    var margin = (v.resale - w) * L, team = L * v.mins / 60 * v.hourly;
-    return {L:L, w:w, margin:margin, team:team, profit:margin - team, billed:v.resale * L, lk:w * L};
+    var L = clients * v.locs, w = v.wholesale;
+    return {L:L, w:w, profit:(v.resale - w) * L, billed:v.resale * L, lk:w * L};
   }
 
   function calc(){
@@ -259,8 +228,6 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:2rem 0 3rem;font
     $('mProfit').textContent = usd.format(now.profit);
     $('mProfit').style.color = now.profit < 0 ? 'var(--poor)' : '';
     $('mSub').textContent = 'across ' + Math.round(now.L).toLocaleString('en-US') + ' location' + (now.L === 1 ? '' : 's') + ' · ' + usd.format(now.profit * 12) + ' a year at today’s size';
-    $('sMargin').textContent = usd.format(now.margin);
-    $('sTeam').textContent = usd.format(now.team);
     $('sBilled').textContent = usd.format(now.billed);
     $('sSetup').textContent = usd.format(now.L * setupPerLoc);
     $('sPerClient').textContent = usd.format(v.clients ? now.profit / v.clients : 0);
@@ -269,21 +236,14 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:2rem 0 3rem;font
     // where each client dollar goes
     var total = now.billed || 1;
     var pw = Math.max(0, Math.min(100, now.lk / total * 100));
-    var pc = Math.max(0, Math.min(100 - pw, now.team / total * 100));
-    $('barW').style.width = pw + '%'; $('barC').style.width = pc + '%'; $('barM').style.width = Math.max(0, 100 - pw - pc) + '%';
-    $('splitBar').setAttribute('aria-label', 'Of each client dollar: ' + Math.round(pw) + '% wholesale, ' + Math.round(pc) + '% team cost, ' + Math.max(0, Math.round(100 - pw - pc)) + '% profit');
+    $('barW').style.width = pw + '%'; $('barM').style.width = (100 - pw) + '%';
+    $('splitBar').setAttribute('aria-label', 'Of each client dollar: ' + Math.round(pw) + '% wholesale, ' + Math.round(100 - pw) + '% margin');
 
     var warn = '';
     if (v.resale < now.w) warn = 'Your resale price is below the wholesale price, so you lose money on every location.';
-    else if (now.profit < 0) warn = 'Team time costs more than your margin. Raise the resale price or cut time per location.';
     else if (setupPerLoc < 0) warn = 'You pay more in setup fees than you charge, so each new location starts at a loss.';
     $('calcWarn').textContent = warn; $('calcWarn').classList.toggle('show', !!warn);
 
-    $('volNote').textContent = (v.volAt > 0 && v.volPct > 0)
-      ? (now.L >= v.volAt
-          ? 'Volume discount applied: wholesale is ' + usd.format(now.w) + ' per location because you manage ' + v.volAt + ' or more.'
-          : 'Reach ' + v.volAt + ' locations to cut wholesale by ' + v.volPct + '%. You are ' + Math.ceil(v.volAt - now.L) + ' away.')
-      : '';
 
     // 12-month projection: start with the starting clients in month 1, then add new clients and lose churn each month
     var c = v.clients, sum = 0, rows = [], churn = Math.min(v.churn, 100) / 100;
